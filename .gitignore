@@ -1,6 +1,7 @@
 node_modules/
 dist/
 build/
+gen/
 pnpm-lock.yaml
 .env
 .DS_Store
