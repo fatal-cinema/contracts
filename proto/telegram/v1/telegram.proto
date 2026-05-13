@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package telegram.v1;
+
+import "google/protobuf/empty.proto";
+service TelegramService {
+  rpc TelegramInit (google.protobuf.Empty) returns (TelegramInitResponse);
+  rpc TelegramVerify (TelegramVerifyRequest) returns (TelegramVerifyResponse);
+}
+
+message TelegramInitResponse {
+  string url = 1;
+}
+
+message TelegramVerifyRequest {
+  map<string, string> query = 1;
+}
+
+message TelegramVerifyResponse {
+  oneof result {
+    string url = 1;
+    string access_token = 2;
+    string refresh_token = 3;
+  }
+}

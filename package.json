@@ -1,13 +1,13 @@
 {
   "name": "@fatal-cinema/contracts",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Protobuf definitions and generated TypeScript types",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "prebuild": "rimraf ./dist",
-    "generate": "protoc -I ./proto --ts_proto_out=./gen --ts_proto_opt=nestJs=true,package=omit ./proto/auth/v1/*.proto ./proto/account/v1/*.proto",
+    "generate": "protoc -I ./proto --ts_proto_out=./gen --ts_proto_opt=nestJs=true,package=omit ./proto/auth/v1/*.proto ./proto/account/v1/*.proto ./proto/telegram/v1/*.proto",
     "pregenerate": "rimraf ./gen && mkdirp ./gen"
   },
   "files": [
@@ -43,6 +43,16 @@
       "import": {
         "types": "./dist/gen/account/v1/account.d.ts",
         "default": "./dist/gen/account/v1/account.js"
+      }
+    },
+    "./gen/telegram": {
+      "require": {
+        "types": "./dist/gen/telegram/v1/telegram.d.ts",
+        "default": "./dist/gen/telegram/v1/telegram.js"
+      },
+      "import": {
+        "types": "./dist/gen/telegram/v1/telegram.d.ts",
+        "default": "./dist/gen/telegram/v1/telegram.js"
       }
     }
   },
